@@ -1,0 +1,14 @@
+syntax = "proto3";
+package nuggetnchill.yourmom.yourmom;
+
+import "gogoproto/gogo.proto";
+import "yourmom/params.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/nuggetnchill/your-mom/x/yourmom/types";
+
+// GenesisState defines the yourmom module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  // this line is used by starport scaffolding # genesis/proto/state
+}
