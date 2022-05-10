@@ -20,6 +20,8 @@ export interface RpcStatus {
   details?: ProtobufAny[];
 }
 
+export type YourmomMsgCreatePostResponse = object;
+
 /**
  * Params defines the parameters for the module.
  */
@@ -31,6 +33,11 @@ export type YourmomParams = object;
 export interface YourmomQueryParamsResponse {
   /** params holds all the parameters of this module. */
   params?: YourmomParams;
+}
+
+export interface YourmomQueryPostsResponse {
+  title?: string;
+  body?: string;
 }
 
 export type QueryParamsType = Record<string | number, any>;
@@ -240,6 +247,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
   queryParams = (params: RequestParams = {}) =>
     this.request<YourmomQueryParamsResponse, RpcStatus>({
       path: `/nuggetnchill/yourmom/yourmom/params`,
+      method: "GET",
+      format: "json",
+      ...params,
+    });
+
+  /**
+   * No description
+   *
+   * @tags Query
+   * @name QueryPosts
+   * @summary Queries a list of Posts items.
+   * @request GET:/nuggetnchill/yourmom/yourmom/posts
+   */
+  queryPosts = (params: RequestParams = {}) =>
+    this.request<YourmomQueryPostsResponse, RpcStatus>({
+      path: `/nuggetnchill/yourmom/yourmom/posts`,
       method: "GET",
       format: "json",
       ...params,
