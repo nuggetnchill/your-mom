@@ -1,6 +1,6 @@
 syntax = "proto3";
-package username.blog.blog;
-option go_package = "github.com/username/blog/x/blog/types";
+package nuggetnchill.yourmom.yourmom;
+option go_package = "github.com/nuggetnchill/your-mom/x/yourmom/types";
 
 message Post {
   string creator = 1;

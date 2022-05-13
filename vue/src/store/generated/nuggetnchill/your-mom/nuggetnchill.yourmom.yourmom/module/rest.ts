@@ -20,7 +20,10 @@ export interface RpcStatus {
   details?: ProtobufAny[];
 }
 
-export type YourmomMsgCreatePostResponse = object;
+export interface YourmomMsgCreatePostResponse {
+  /** @format uint64 */
+  id?: string;
+}
 
 /**
  * Params defines the parameters for the module.
